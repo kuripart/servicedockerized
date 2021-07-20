@@ -1,4 +1,4 @@
-# A Simple Dockerized Django App
+# Working towards Dockerizing a simple Django chat app
 
 ## To Run:
 
