@@ -71,6 +71,20 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'servicedockerized.wsgi.application'
 ASGI_APPLICATION = 'servicedockerized.asgi.application'
+# DEBUGGING NOTES:
+# ModuleNotFoundError: No module named 'channels_redis'
+# channels.exceptions.InvalidChannelLayerError: Cannot import BACKEND 'channels_redis.core.RedisChannelLayer' specified for default
+
+# Install for the right version
+# python3.7 -m pip install channels_redis
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
 
 
 # Database
