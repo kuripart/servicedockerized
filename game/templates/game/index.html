@@ -1,0 +1,26 @@
+{% extends 'game/base.html' %}
+
+{% comment %} index.html {% endcomment %}
+
+
+{% block content %}
+<div class="wrapper">
+  <h1>tic tac toe</h1>
+  <form method="POST">
+    {% csrf_token %}
+    <div class='form-control'>
+      <label for="room">room id</label>
+      <input id="room" type="text" name="room_code" required />
+    </div>
+    <div class='form-control'>
+      <label for="character_choice">character</label>
+      <select for="character_choice" name = "character_choice">
+      <option value="X">X</option>
+      <option value="O">O</option>
+      <option value="NA">NA</option> <!--invalid-->
+      </select>
+    </div>
+    <input type="submit" class="button" value="Start Game" />
+</div>
+</form>
+{% endblock content %}

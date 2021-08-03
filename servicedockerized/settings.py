@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'chat',
+    'game',
     'channels',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -78,6 +79,8 @@ ASGI_APPLICATION = 'servicedockerized.asgi.application'
 # Install for the right version
 # python3.7 -m pip install channels_redis
 CHANNEL_LAYERS = {
+    # To run docker image locally:
+    # docker run -p 6379:6379 -d redis:5
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
@@ -135,6 +138,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
